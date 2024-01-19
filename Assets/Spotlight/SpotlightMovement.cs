@@ -27,7 +27,7 @@ namespace MiniJam150
         }
 
 
-        private void Update()
+		private void Update()
         {
             if (transform.position != newTargetPosition)
             {
