@@ -7,7 +7,7 @@ namespace MiniJam150
 	public class RandomTimer : MonoBehaviour
 	{
 		public bool run = true;
-		[Range(1f, 10f)] public float maxDelay = 5f;
+		[Range(1f, 10f)] public float maxDelay = 7f;
 
 		public UnityEvent delayElapsed;
 
