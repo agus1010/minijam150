@@ -10,7 +10,6 @@ namespace MiniJam150.UI
 		[SerializeField] private TextMeshProUGUI scoreDisplay;
 
 
-
 		private int m_prevScore = 0;
 		private void Start()
 		{

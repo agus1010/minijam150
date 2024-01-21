@@ -6,9 +6,18 @@ namespace MiniJam150
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private bool _isLocked = false;
+        public bool isLocked
+        {
+            get => _isLocked;
+            set => _isLocked = value;
+        }
+
         [SerializeField] private float speed = 5f;
 
         private CharacterController charController;
+
+        public Vector2 horizontalDirection => new Vector2(up, left);
         private int up = 0;
         private int left = 0;
 
@@ -41,7 +50,6 @@ namespace MiniJam150
                 left = 0;
 		}
 
-
 		private void Start()
 		{
             charController = GetComponent<CharacterController>();
@@ -49,7 +57,8 @@ namespace MiniJam150
 
 		private void Update()
         {
-            charController.Move(new Vector3(up * speed * .1f, 0f, left * speed * .1f));
+            if (!isLocked)
+                charController.Move(new Vector3(up * speed * .1f, 0f, left * speed * .1f));
         }
     }
 }
