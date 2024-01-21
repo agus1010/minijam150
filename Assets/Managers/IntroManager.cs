@@ -1,41 +1,51 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace MiniJam150
 {
-	public class IntroManager : MonoBehaviour
-	{
-		public GameSpotLight gameSpotlight;
-		public PlayerMovement playerMovement;
-		public Transform playerInitialPlace;
-		public float totalTime = 2f;
-		public Animator animator;
+    public class IntroManager : MonoBehaviour
+    {
+        public PlayerMovement player;
+        public GameSpotLight gameSpotlight;
+        public SpotlightPositionPicker picker;
+        public Transform startPosition;
+        public float timeToBeginGame = 30f;
+        public GameObject scoreDisplay;
 
-		private bool m_playIntro = false;
-		private Transform gameSpotlightOriginalTarget;
+        public UnityEvent GameStarted;
+        
+        public void PlayIntro()
+        {
+            gameSpotlight.lookAtTarget = player.transform;
+            picker.isLocked = true;
+            picker.GetComponent<RandomTimer>().run = false;
+            m_started = true;
+			GameStarted?.Invoke();
+        }
 
-		public void StartGame()
-		{
-			gameSpotlightOriginalTarget = gameSpotlight.lookAtTarget;
-			gameSpotlight.lookAtTarget = playerMovement.transform;
-			m_playIntro = true;
-			animator.SetTrigger("GAME_STARTED");
-		}
+        public void StartGame()
+        {
+            gameSpotlight.transform.LookAt(startPosition);
+            gameSpotlight.lookAtTarget = picker.transform;
+            scoreDisplay.SetActive(true);
+        }
 
 
-		private float m_deltaTime = 0f;
+        private float m_delta = 0f;
+        private bool m_started = false;
 		private void Update()
 		{
-			if (!m_playIntro)
-				return;
-			m_deltaTime += Time.deltaTime;
-			playerMovement.transform.position = Vector3.Lerp(playerMovement.transform.position, playerInitialPlace.transform.position, Mathf.Clamp01(m_deltaTime / totalTime));
-			if (m_deltaTime >= totalTime)
-			{
-				gameSpotlight.lookAtTarget = gameSpotlightOriginalTarget;
-				m_playIntro = false;
-				gameObject.SetActive(false);
-			}
+			if (m_started)
+            {
+                if (m_delta < timeToBeginGame)
+                    m_delta += Time.deltaTime;
+                else
+                {
+                    StartGame();
+                    m_started = false;
+                }
+            }
 		}
 	}
 }
