@@ -2,7 +2,7 @@
     "name": "Player Controls",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Player",
             "id": "3764e3a0-8051-4f52-be61-328acc89ac8d",
             "actions": [
                 {
@@ -36,6 +36,15 @@
                     "name": "Right",
                     "type": "Button",
                     "id": "44a44cf6-29b7-455e-9b53-22aebc585312",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sing",
+                    "type": "Button",
+                    "id": "44cfbf01-260e-418c-be52-7a372e9fd582",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -128,6 +137,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d13b2b4-7016-44af-bcd0-98c4776b97d8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

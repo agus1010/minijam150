@@ -1,36 +1,21 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace MiniJam150
 {
 	public class ScoreManager : MonoBehaviour
 	{
-		public int Score = 0;
-
-		private List<Miscelaneous.PlayerDetector> detectors;
-
-
-		public void PlayerDetected(Miscelaneous.PlayerDetector detector)
-			=> detectors.Add(detector);
-
-		public void PlayerLeft(Miscelaneous.PlayerDetector detector)
-		{
-			detectors.Remove(detector);
-			if (detectors.Count == 0)
-				delta = 0f;
-		}
+		public PlayerGlobals playerGlobals;
 		
-
-		private void Awake()
-		{
-			detectors = new List<Miscelaneous.PlayerDetector>();
-		}
+		public int Score = 0;
+		public float winCondition = .8f;
+		public bool wonThisRound => Score / 100f >= winCondition;
+		
 
 		private float delta = 0f;
 		private void Update()
 		{
-			if (detectors.Count > 0)
+			if (playerGlobals.isUnderSpotlight)
 			{
 				delta += Time.deltaTime;
 				if (delta >= 1)
