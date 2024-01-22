@@ -2540,10 +2540,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerUnderASpotlight:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1305926265}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SING
+          m_BoolArgument: 0
+        m_CallState: 2
   PlayerUnderCoverOfDarkness:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1305926265}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IDLE
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1305926265
 Animator:
   serializedVersion: 5
@@ -3628,7 +3652,7 @@ Transform:
   m_GameObject: {fileID: 1704231108}
   m_LocalRotation: {x: 0.18819289, y: 0.6816036, z: -0.18819289, w: 0.6816036}
   m_LocalPosition: {x: 0, y: 1.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1305926261}
@@ -3675,7 +3699,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e5600378dd761e64d9423790c482bf36, type: 3}
+  m_Sprite: {fileID: -1015998738, guid: 39c03a8904b2857409d862b523d0d002, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
