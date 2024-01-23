@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 
 namespace MiniJam150
@@ -8,7 +7,7 @@ namespace MiniJam150
 	public class PlayerGlobals : MonoBehaviour
 	{
 		public bool isUnderSpotlight => detectors.Count > 0;
-		public bool isMoving => playerMovement.motion.magnitude > 0f;
+		public bool isMoving => playerMovement.isMoving;
 
 
 		[SerializeField] private PlayerMovement playerMovement;

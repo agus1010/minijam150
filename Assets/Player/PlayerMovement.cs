@@ -16,6 +16,7 @@ namespace MiniJam150
         }
 
         public Vector3 motion { get; private set; } = Vector3.zero;
+        public bool isMoving => up != 0 || left != 0;
 
         [SerializeField] private float speed = 5f;
 
@@ -32,6 +33,7 @@ namespace MiniJam150
             else if (callbackContext.canceled)
                 up = 0;
         }
+
         public void MoveDown(InputAction.CallbackContext callbackContext)
         {
             if (callbackContext.performed)
