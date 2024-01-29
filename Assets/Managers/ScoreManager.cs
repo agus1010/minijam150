@@ -6,7 +6,7 @@ namespace MiniJam150
 {
 	public class ScoreManager : MonoBehaviour
 	{
-		public PlayerGlobals playerGlobals;
+		public Player player;
 		
 		public int Score = 0;
 		public float winCondition = .8f;
@@ -21,7 +21,7 @@ namespace MiniJam150
 		{
 			if (gameFinished)
 				return;
-			if (playerGlobals.isUnderSpotlight)
+			if (player.isUnderSpotlight)
 			{
 				delta += Time.deltaTime;
 				if (delta >= 1)

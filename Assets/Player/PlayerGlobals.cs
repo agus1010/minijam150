@@ -7,8 +7,7 @@ namespace MiniJam150
 	public class PlayerGlobals : MonoBehaviour
 	{
 		public bool isUnderSpotlight => detectors.Count > 0;
-		public bool isMoving => playerMovement.isMoving;
-
+		
 		[SerializeField] private PlayerMovement playerMovement;
 		[SerializeField] private CrowdSoundsManager crowdSoundsManager;
 

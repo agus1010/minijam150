@@ -11,19 +11,19 @@ namespace MiniJam150
 	public class PlayerAnimatorController : MonoBehaviour
 	{
 		[SerializeField] private Animator animator;
-		[SerializeField] private PlayerGlobals playerGlobals;
+		[SerializeField] private Player player;
 
 		private PLAYER_STATUS playerStatus = PLAYER_STATUS.IDLE;
 
 
 		private void Update()
 		{
-			if (playerGlobals.isMoving)
+			if (player.isMoving)
 			{
 				trySetStatus(PLAYER_STATUS.MOVING, "MOVING");
 				return;
 			}
-			if (playerGlobals.isUnderSpotlight)
+			if (player.isUnderSpotlight)
 			{
 				trySetStatus(PLAYER_STATUS.SINGING, "SING");
 				return;

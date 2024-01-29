@@ -143,9 +143,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4561736973257172496}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerMovement, Assembly-CSharp
-        m_MethodName: MoveUp
+      - m_Target: {fileID: 7995644208538355225}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: OnUp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -159,9 +159,9 @@ MonoBehaviour:
     m_ActionName: Movement/Up[/Keyboard/w,/Keyboard/upArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4561736973257172496}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerMovement, Assembly-CSharp
-        m_MethodName: MoveDown
+      - m_Target: {fileID: 7995644208538355225}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: OnDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -175,9 +175,9 @@ MonoBehaviour:
     m_ActionName: Movement/Down[/Keyboard/s,/Keyboard/downArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4561736973257172496}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerMovement, Assembly-CSharp
-        m_MethodName: MoveLeft
+      - m_Target: {fileID: 7995644208538355225}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: OnLeft
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -191,9 +191,9 @@ MonoBehaviour:
     m_ActionName: Movement/Left[/Keyboard/a,/Keyboard/leftArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4561736973257172496}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerMovement, Assembly-CSharp
-        m_MethodName: MoveRight
+      - m_Target: {fileID: 7995644208538355225}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: OnRight
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -235,9 +235,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4561736973257172499}
+  - component: {fileID: 7995644208538355225}
   - component: {fileID: 5247929070057286144}
   - component: {fileID: 4561736973257172496}
-  - component: {fileID: 4561736973257172510}
   - component: {fileID: 4561736973257172511}
   - component: {fileID: 4561736973257172508}
   m_Layer: 0
@@ -265,6 +265,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7995644208538355225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4561736973257172498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f79b1de601cfb649a872439f44fda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 4561736973151025023}
+  playerMovement: {fileID: 4561736973257172496}
 --- !u!114 &5247929070057286144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4561736973257172511}
-  playerGlobals: {fileID: 4561736973257172510}
+  player: {fileID: 7995644208538355225}
 --- !u!114 &4561736973257172496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,23 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charController: {fileID: 4561736973257172508}
-  animator: {fileID: 4561736973257172511}
+  speed: 0.25
   _isLocked: 0
-  speed: 2
---- !u!114 &4561736973257172510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4561736973257172498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a22f969baa5e6949a11ce1a7e546758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 4561736973257172496}
-  crowdSoundsManager: {fileID: 0}
 --- !u!95 &4561736973257172511
 Animator:
   serializedVersion: 5
@@ -425,7 +424,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.7, z: 0}
 --- !u!114 &5753914012156555450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,30 +441,28 @@ MonoBehaviour:
   ObjectDetected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4561736973257172510}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerGlobals, Assembly-CSharp
-        m_MethodName: PlayerDetected
-        m_Mode: 2
+      - m_Target: {fileID: 7995644208538355225}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: set_isUnderSpotlight
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 5753914012156555450}
-          m_ObjectArgumentAssemblyTypeName: MiniJam150.Miscelaneous.ObjectDetector,
-            Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   ObjectLost:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4561736973257172510}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerGlobals, Assembly-CSharp
-        m_MethodName: PlayerLeft
-        m_Mode: 2
+      - m_Target: {fileID: 7995644208538355225}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: set_isUnderSpotlight
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 5753914012156555450}
-          m_ObjectArgumentAssemblyTypeName: MiniJam150.Miscelaneous.ObjectDetector,
-            Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

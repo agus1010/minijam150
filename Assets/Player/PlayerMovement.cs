@@ -1,69 +1,41 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 
 namespace MiniJam150
 {
-    public class PlayerMovement : MonoBehaviour
-    {
+	public class PlayerMovement : MonoBehaviour
+	{
         [SerializeField] private CharacterController charController;
-        [SerializeField] private Animator animator;
+        [SerializeField] private float speed = 5f;
         [SerializeField] private bool _isLocked = false;
+		
+
+		private Vector3 _moveDirection;
+		public Vector3 moveDirection
+		{
+			get => _moveDirection;
+			set => _moveDirection = value.normalized;
+		}
+		public Vector3 motion { get; private set; } = Vector3.zero;
         public bool isLocked
         {
             get => _isLocked;
             set => _isLocked = value;
         }
 
-        public Vector3 motion { get; private set; } = Vector3.zero;
-        public bool isMoving => up != 0 || left != 0;
-
-        [SerializeField] private float speed = 5f;
-
-
-        public Vector2 horizontalDirection => new Vector2(up, left);
-        private int up = 0;
-        private int left = 0;
-
-
-        public void MoveUp(InputAction.CallbackContext callbackContext)
-        {
-            if (callbackContext.performed)
-                up = 1;
-            else if (callbackContext.canceled)
-                up = 0;
-        }
-
-        public void MoveDown(InputAction.CallbackContext callbackContext)
-        {
-            if (callbackContext.performed)
-                up = -1;
-            else if (callbackContext.canceled)
-                up = 0;
-        }
-        public void MoveLeft(InputAction.CallbackContext callbackContext)
-        {
-            if (callbackContext.performed)
-                left = 1;
-            else if (callbackContext.canceled)
-                left = 0;
-        }
-        public void MoveRight(InputAction.CallbackContext callbackContext)
-        {
-            if (callbackContext.performed)
-                left = -1;
-            else if (callbackContext.canceled)
-                left = 0;
-        }
-
 
 		private void Update()
-        {
-            if (!isLocked)
+		{
+			if (!isLocked)
             {
-                motion = new Vector3(up * speed * .1f, 0f, left * speed * .1f);
-                charController.Move(motion);
+				motion = new Vector3
+				(
+					x: moveDirection.x * speed * .1f,
+					y: 0f,
+					z: moveDirection.y * speed * .1f
+				);
+				charController.Move(motion);
             }
-        }
-    }
+		}
+	}
 }

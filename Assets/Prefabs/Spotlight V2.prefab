@@ -188,10 +188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68e87c9acf281043b30a726a9049bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 5
   planeExtents: {x: 5, y: 5}
+  mode: 0
   automaticTargetter: {fileID: 3965343794975954864}
   positionLerper: {fileID: 900630932904979220}
   randomTimer: {fileID: 7718222534784884595}
+  showSelectablePoints: 0
   PlayerEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -238,6 +241,10 @@ PrefabInstance:
     - target: {fileID: 2849267419631031464, guid: 584960f6dc51a1b4abce39058db12105, type: 3}
       propertyPath: m_Name
       value: Pointed Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849267419631031464, guid: 584960f6dc51a1b4abce39058db12105, type: 3}
+      propertyPath: m_TagString
+      value: Game Spotlight
       objectReference: {fileID: 0}
     - target: {fileID: 2849267419631031467, guid: 584960f6dc51a1b4abce39058db12105, type: 3}
       propertyPath: m_RootOrder
