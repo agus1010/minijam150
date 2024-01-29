@@ -8,14 +8,14 @@ namespace MiniJam150
 	{
 		MAIN_MENU = 0, PLAYING_INTRO = 1, GAME_ONGOING = 2, FINISHED = 3
 	}
-	public class GameManager : MonoBehaviour
+	public class ApplicationManager : MonoBehaviour
 	{
 		public GAME_STATE status { get; private set; } = GAME_STATE.MAIN_MENU;
 
-		public UnityEvent GameStatusIsMainMenu;
-		public UnityEvent GameStatusIsPlayingIntro;
-		public UnityEvent GameStatusIsGameOnGoing;
-		public UnityEvent GameStatusIsFinished;
+		public UnityEvent OnMainMenu;
+		public UnityEvent OnPlayIntro;
+		public UnityEvent OnStartGame;
+		public UnityEvent OnFinished;
 
 
 		public void NextStatus()
@@ -24,19 +24,21 @@ namespace MiniJam150
 			getCurrentStateEvent()?.Invoke();
 		}
 
+		private void Awake()
+		{
+			OnMainMenu?.Invoke();
+		}
 
 		private UnityEvent getCurrentStateEvent()
 		{
 			switch (status)
 			{
-				case GAME_STATE.MAIN_MENU:
-					return GameStatusIsMainMenu;
 				case GAME_STATE.PLAYING_INTRO:
-					return GameStatusIsPlayingIntro;
+					return OnPlayIntro;
 				case GAME_STATE.GAME_ONGOING:
-					return GameStatusIsGameOnGoing;
+					return OnStartGame;
 				default:
-					return GameStatusIsFinished;
+					return OnFinished;
 			}
 		}
 	}

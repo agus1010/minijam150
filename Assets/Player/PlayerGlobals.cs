@@ -12,14 +12,14 @@ namespace MiniJam150
 		[SerializeField] private PlayerMovement playerMovement;
 		[SerializeField] private CrowdSoundsManager crowdSoundsManager;
 
-		private List<Miscelaneous.PlayerDetector> detectors;
-		public void PlayerDetected(Miscelaneous.PlayerDetector detector)
+		private List<Miscelaneous.ObjectDetector> detectors;
+		public void PlayerDetected(Miscelaneous.ObjectDetector detector)
 		{
 			detectors.Add(detector);
 			crowdSoundsManager.PlayAplauses();
 		}
 
-		public void PlayerLeft(Miscelaneous.PlayerDetector detector)
+		public void PlayerLeft(Miscelaneous.ObjectDetector detector)
 		{
 			detectors.Remove(detector);
 		}
@@ -27,7 +27,7 @@ namespace MiniJam150
 
 		private void Awake()
 		{
-			detectors = new List<Miscelaneous.PlayerDetector>();
+			detectors = new List<Miscelaneous.ObjectDetector>();
 		}
 	}
 }
