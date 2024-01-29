@@ -10,32 +10,25 @@ namespace MiniJam150
 		[SerializeField] private AudioSource singingAplausesSource;
 		[SerializeField] private AudioSource outroAplausesSource;
 
-		public void PlayApplauses()
+		public void PlayAplauses()
 		{
 			singingAplausesSource.Play();
+		}
+
+		public void StopAplauses()
+		{
+			singingAplausesSource.Stop();
+		}
+
+		public void PlayIntro()
+		{
+			hubblingNoisesSource.Stop();
+			introAplausesSource.Play();
 		}
 
 		public void PlayEndGame()
 		{
 			outroAplausesSource.Play();
-		}
-
-		public void StartGame()
-		{
-			m_lowerVolume = true;
-		}
-
-
-
-		bool m_lowerVolume = false;
-		private void Update()
-		{
-			if (m_lowerVolume)
-			{
-				hubblingNoisesSource.volume -= Time.deltaTime;
-				if (hubblingNoisesSource.volume == 0)
-					m_lowerVolume = false;
-			}
 		}
 	}
 }

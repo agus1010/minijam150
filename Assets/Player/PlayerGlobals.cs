@@ -9,13 +9,14 @@ namespace MiniJam150
 		public bool isUnderSpotlight => detectors.Count > 0;
 		public bool isMoving => playerMovement.isMoving;
 
-
 		[SerializeField] private PlayerMovement playerMovement;
+		[SerializeField] private CrowdSoundsManager crowdSoundsManager;
 
 		private List<Miscelaneous.PlayerDetector> detectors;
 		public void PlayerDetected(Miscelaneous.PlayerDetector detector)
 		{
 			detectors.Add(detector);
+			crowdSoundsManager.PlayAplauses();
 		}
 
 		public void PlayerLeft(Miscelaneous.PlayerDetector detector)
