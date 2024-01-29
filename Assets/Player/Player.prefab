@@ -420,7 +420,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4581717942605472370}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -445,10 +445,11 @@ MonoBehaviour:
       - m_Target: {fileID: 4561736973257172510}
         m_TargetAssemblyTypeName: MiniJam150.PlayerGlobals, Assembly-CSharp
         m_MethodName: PlayerDetected
-        m_Mode: 0
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5753914012156555450}
+          m_ObjectArgumentAssemblyTypeName: MiniJam150.Miscelaneous.ObjectDetector,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -460,10 +461,11 @@ MonoBehaviour:
       - m_Target: {fileID: 4561736973257172510}
         m_TargetAssemblyTypeName: MiniJam150.PlayerGlobals, Assembly-CSharp
         m_MethodName: PlayerLeft
-        m_Mode: 0
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5753914012156555450}
+          m_ObjectArgumentAssemblyTypeName: MiniJam150.Miscelaneous.ObjectDetector,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
