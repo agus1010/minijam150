@@ -36,7 +36,7 @@ namespace MiniJam150
 
 		public void Reset()
 		{
-			waiting = true;
+			waiting = false;
 			run = true;
 		}
 

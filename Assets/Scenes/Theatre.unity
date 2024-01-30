@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017033923, g: 0.000000025772884, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1558,8 +1558,8 @@ MonoBehaviour:
   OnMainMenu:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1128630002}
-        m_TargetAssemblyTypeName: MiniJam150.GameSpotLight, Assembly-CSharp
+      - m_Target: {fileID: 1305926266}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
         m_MethodName: Freeze
         m_Mode: 6
         m_Arguments:
@@ -1569,7 +1569,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 2
   OnPlayIntro:
     m_PersistentCalls:
       m_Calls:
@@ -1621,9 +1621,9 @@ MonoBehaviour:
           m_StringArgument: GAME_STARTED
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1305926262}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerMovement, Assembly-CSharp
-        m_MethodName: set_isLocked
+      - m_Target: {fileID: 1305926266}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: Freeze
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1662,7 +1662,55 @@ MonoBehaviour:
         m_CallState: 2
   OnFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1305926266}
+        m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
+        m_MethodName: Freeze
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1128630002}
+        m_TargetAssemblyTypeName: MiniJam150.GameSpotLight, Assembly-CSharp
+        m_MethodName: Freeze
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1610489595}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1939230349}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &931220973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,17 +2460,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4561736973257172499, guid: eb3b7945781d63e419f65421325fb7fc, type: 3}
   m_PrefabInstance: {fileID: 4561736974235647078}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1305926262 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4561736973257172496, guid: eb3b7945781d63e419f65421325fb7fc, type: 3}
-  m_PrefabInstance: {fileID: 4561736974235647078}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c15d824c569594daa6fd7b13a1b9d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1305926266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7995644208538355225, guid: eb3b7945781d63e419f65421325fb7fc, type: 3}
@@ -2957,6 +2994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574686509}
   - component: {fileID: 1574686508}
+  - component: {fileID: 1574686510}
   m_Layer: 0
   m_Name: Score Manager
   m_TagString: Untagged
@@ -2976,55 +3014,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5febe52a07adf33469de838bb742f122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1305926266}
-  Score: 0
-  winCondition: 0.8
-  FinishGame:
+  _winCondition: 5
+  gameTimer: {fileID: 1574686510}
+  GameFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1939230349}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 866850853}
+        m_TargetAssemblyTypeName: MiniJam150.ApplicationManager, Assembly-CSharp
+        m_MethodName: NextStatus
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1305926262}
-        m_TargetAssemblyTypeName: MiniJam150.PlayerMovement, Assembly-CSharp
-        m_MethodName: set_isLocked
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiniJam150.GameSpotLight, Assembly-CSharp
-        m_MethodName: SetNewTarget
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1305926261}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3045,6 +3046,36 @@ Transform:
   m_Father: {fileID: 757239837}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574686510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574686507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cf380fe13320c48b5ff44d897f0a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDelay: 1
+  run: 0
+  mode: 1
+  delayElapsed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1574686508}
+        m_TargetAssemblyTypeName: MiniJam150.ScoreManager, Assembly-CSharp
+        m_MethodName: AddPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1576996293
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,8 +4383,64 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
-      propertyPath: showSelectablePoints
-      value: 0
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1574686508}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1574686508}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CountForPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CountForPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniJam150.ScoreManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniJam150.ScoreManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e49c290020358468f8007de319c0ff, type: 3}
@@ -4367,6 +4454,10 @@ PrefabInstance:
     - target: {fileID: 4561736973151025023, guid: eb3b7945781d63e419f65421325fb7fc, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561736973257172496, guid: eb3b7945781d63e419f65421325fb7fc, type: 3}
+      propertyPath: speed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4561736973257172498, guid: eb3b7945781d63e419f65421325fb7fc, type: 3}
       propertyPath: m_Name

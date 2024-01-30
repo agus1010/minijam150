@@ -6,35 +6,38 @@ namespace MiniJam150
 {
 	public class ScoreManager : MonoBehaviour
 	{
-		public Player player;
+		[SerializeField] private int _winCondition = 100;
+		[SerializeField] private GameTimer gameTimer;
 		
-		public int Score = 0;
-		public float winCondition = .8f;
-		public bool wonThisRound => Score / 100f >= winCondition;
+		public int score { get; set; } = 0;
+		public bool gameFinished => score == _winCondition;
+		public int winCondition => _winCondition;
 
-		private bool gameFinished = false;
-		public UnityEvent FinishGame;
-		
+		public UnityEvent GameFinished;
 
-		private float delta = 0f;
-		private void Update()
+
+		private bool allowedToAddPoints = false;
+
+
+		public void AddPoint()
 		{
+			if (!allowedToAddPoints) return;
+			score += 1;
 			if (gameFinished)
-				return;
-			if (player.isUnderSpotlight)
 			{
-				delta += Time.deltaTime;
-				if (delta >= 1)
-				{
-					Score += 1;
-					delta = 0;
-				}
+				gameTimer.run = false;
+				GameFinished?.Invoke();
 			}
-			if (Score == 100)
-			{
-				gameFinished = true;
-				FinishGame?.Invoke();
-			}
+		}
+
+		public void CountForPoints(bool allow)
+		{
+			if (gameFinished) return;
+			allowedToAddPoints = allow;
+			if (allow)
+				gameTimer.Reset();
+			else
+				gameTimer.run = false;
 		}
 	}
 }

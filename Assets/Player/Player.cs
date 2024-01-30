@@ -12,6 +12,10 @@ namespace MiniJam150
 		public bool isMoving => playerMovement.motion != Vector3.zero;
 		public bool isUnderSpotlight { get; set; } = false;
 
+
+		public void Freeze(bool newValue)
+			=> playerMovement.isLocked = newValue;
+
 		public void OnUp(InputAction.CallbackContext callbackContext)
 			=> putMoveDirection(onXAxis: true, direction: 1, context: callbackContext);
 

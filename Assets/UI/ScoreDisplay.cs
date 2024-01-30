@@ -19,14 +19,14 @@ namespace MiniJam150.UI
 
 		private void Update()
 		{
-			if (m_prevScore != scoreManager.Score)
+			if (m_prevScore != scoreManager.score)
 				updateInternals();
 		}
 
 		private void updateInternals()
 		{
-			m_prevScore = scoreManager.Score;
-			scoreDisplay.text = $"Crowd Cheer: {m_prevScore}/100";
+			m_prevScore = scoreManager.score;
+			scoreDisplay.text = $"Crowd Cheer: {m_prevScore}/{scoreManager.winCondition}";
 		}
 	}
 }
