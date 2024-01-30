@@ -151,10 +151,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 433b70606cbcc434290f38553b58d61c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1570,6 +1570,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1486679402}
+        m_TargetAssemblyTypeName: MiniJam150.CrowdSoundsManager, Assembly-CSharp
+        m_MethodName: PlayMainMenuSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnPlayIntro:
     m_PersistentCalls:
       m_Calls:
@@ -1609,6 +1621,18 @@ MonoBehaviour:
           m_StringArgument: GAME_STARTED
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1486679402}
+        m_TargetAssemblyTypeName: MiniJam150.CrowdSoundsManager, Assembly-CSharp
+        m_MethodName: PlayIntroSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1035448976}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
@@ -1636,6 +1660,18 @@ MonoBehaviour:
   OnStartGame:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1486679402}
+        m_TargetAssemblyTypeName: MiniJam150.CrowdSoundsManager, Assembly-CSharp
+        m_MethodName: StopAmbientNoice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1128630002}
         m_TargetAssemblyTypeName: MiniJam150.GameSpotLight, Assembly-CSharp
         m_MethodName: Reset
@@ -1663,6 +1699,18 @@ MonoBehaviour:
   OnFinished:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1486679402}
+        m_TargetAssemblyTypeName: MiniJam150.CrowdSoundsManager, Assembly-CSharp
+        m_MethodName: PlayGameFinishedSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1305926266}
         m_TargetAssemblyTypeName: MiniJam150.Player, Assembly-CSharp
         m_MethodName: Freeze
@@ -2771,8 +2819,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0dfc50926d345674fa8c4421b68a15fd, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2899,7 +2947,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c63c50c60cd32f4ebfb54428d20b77f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -3014,7 +3062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5febe52a07adf33469de838bb742f122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _winCondition: 5
+  _winCondition: 15
   gameTimer: {fileID: 1574686510}
   GameFinished:
     m_PersistentCalls:
@@ -3916,10 +3964,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6a443b3e64dd91e4391b8c900e081845, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4384,30 +4432,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1574686508}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1486679402}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1574686508}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1486679402}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
@@ -4415,7 +4483,15 @@ PrefabInstance:
       value: CountForPoints
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StopAplauses
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
@@ -4423,15 +4499,31 @@ PrefabInstance:
       value: CountForPoints
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAplauses
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MiniJam150.ScoreManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MiniJam150.CrowdSoundsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MiniJam150.ScoreManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MiniJam150.CrowdSoundsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
@@ -4439,7 +4531,15 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerLeft.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
       propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965343795723071854, guid: 69e49c290020358468f8007de319c0ff, type: 3}
+      propertyPath: PlayerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

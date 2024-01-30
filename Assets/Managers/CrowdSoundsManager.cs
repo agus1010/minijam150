@@ -10,6 +10,20 @@ namespace MiniJam150
 		[SerializeField] private AudioSource singingAplausesSource;
 		[SerializeField] private AudioSource outroAplausesSource;
 
+
+		
+
+		public void PlayMainMenuSounds()
+		{
+			hubblingNoisesSource.Play();
+		}
+
+		public void PlayIntroSounds()
+		{
+			hubblingNoisesSource.volume *= .5f;
+			introAplausesSource.Play();
+		}
+
 		public void PlayAplauses()
 		{
 			singingAplausesSource.Play();
@@ -20,15 +34,15 @@ namespace MiniJam150
 			singingAplausesSource.Stop();
 		}
 
-		public void PlayIntro()
+		public void StopAmbientNoice()
 		{
 			hubblingNoisesSource.Stop();
-			introAplausesSource.Play();
 		}
 
-		public void PlayEndGame()
+		public void PlayGameFinishedSounds()
 		{
 			outroAplausesSource.Play();
+			hubblingNoisesSource.Play();
 		}
 	}
 }
